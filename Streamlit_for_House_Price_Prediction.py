@@ -265,9 +265,9 @@ if selected == "Predict":
     LGBM_model = joblib.load("LightGBM.pkl")
 
     # Loading encoders, scaler and features
-    encoders = joblib.load(r"C:\Users\ASUS\OneDrive\Ai-ML Data Science Guvi\Projects\Project 3 ML for Real estate\Trained Models\encoders.pkl")
-    scaler = joblib.load(r"C:\Users\ASUS\OneDrive\Ai-ML Data Science Guvi\Projects\Project 3 ML for Real estate\Trained Models\scaler.pkl")
-    features = joblib.load(r"C:\Users\ASUS\OneDrive\Ai-ML Data Science Guvi\Projects\Project 3 ML for Real estate\Trained Models\features.pkl")
+    encoders = joblib.load("encoders.pkl")
+    scaler = joblib.load("scaler.pkl")
+    features = joblib.load("features.pkl")
 
     
 
