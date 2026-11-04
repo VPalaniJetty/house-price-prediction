@@ -8,7 +8,7 @@ st.set_page_config(
     layout="wide"
 )
 #==============================================================================================================================================================================
-st.image(r"C:\Users\ASUS\OneDrive\Ai-ML Data Science Guvi\Projects\Project 3 ML for Real estate\Website Pics\Gemini_Generated_Image_j3ppk5j3ppk5j3pp.png",use_container_width="stretch",width=3000)
+st.image("Gemini_Generated_Image.png",use_container_width="stretch",width=3000)
 st.subheader("Welcome to the AI-powered Property Price Prediction App! " \
             "This application allows you to input various features of a property and receive an estimated price based on our trained machine learning model.",
             icon=":material/apartment:",divider="grey")
