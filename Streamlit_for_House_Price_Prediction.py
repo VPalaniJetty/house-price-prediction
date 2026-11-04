@@ -261,11 +261,8 @@ if selected == "Predict":
     #====================================================================================================
 
     # Loading Regression models
-    LR_model = joblib.load(r"C:\Users\ASUS\OneDrive\Ai-ML Data Science Guvi\Projects\Project 3 ML for Real estate\Trained Models\LR_Model.pkl")
-    RF_model = joblib.load(r"C:\Users\ASUS\OneDrive\Ai-ML Data Science Guvi\Projects\Project 3 ML for Real estate\Trained Models\Random_Forest.pkl")
-    DT_model  = joblib.load(r"C:\Users\ASUS\OneDrive\Ai-ML Data Science Guvi\Projects\Project 3 ML for Real estate\Trained Models\Decission_Tree.pkl")
-    XG_model = joblib.load(r"C:\Users\ASUS\OneDrive\Ai-ML Data Science Guvi\Projects\Project 3 ML for Real estate\Trained Models\XG_Booster.pkl")
-    LGBM_model = joblib.load(r"C:\Users\ASUS\OneDrive\Ai-ML Data Science Guvi\Projects\Project 3 ML for Real estate\Trained Models\LightGBM.pkl")
+    XG_model = joblib.load("XG_Booster.pkl")
+    LGBM_model = joblib.load("LightGBM.pkl")
 
     # Loading encoders, scaler and features
     encoders = joblib.load(r"C:\Users\ASUS\OneDrive\Ai-ML Data Science Guvi\Projects\Project 3 ML for Real estate\Trained Models\encoders.pkl")
