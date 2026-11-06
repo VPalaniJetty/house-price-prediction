@@ -263,7 +263,11 @@ if selected == "Predict":
     # Loading Regression models
     XG_model = joblib.load("XG_Booster.pkl")
     LGBM_model = joblib.load("LightGBM.pkl")
-
+    
+    # Laoding Classification Models
+    XG_model_Class =  joblib.load("xgboostClassification_model.pkl")
+    LightGBM_model_Class =  joblib.load("ogistic_regressionClassification_model.pkl")
+    
     # Loading encoders, scaler and features
     encoders = joblib.load("encoders.pkl")
     scaler = joblib.load("scaler.pkl")
@@ -274,6 +278,39 @@ if selected == "Predict":
     input_df = pd.DataFrame([user_data]) # Creating the Data frame from User input received from website
     input_df = input_df.reindex(columns=features).copy() # Re-arranging the features as per model trained way
 
+        #===========Creating the Function to call inside the button=====================
+    
+    @st.dialog("🏠 Property Evaluation Result") # This line runs along with function
+    def show_prediction():
+
+        st.subheader("Predicted Property Value")
+
+        st.metric("Estimated Price",
+                    f"₹ {predicted_price:.2f} Lakhs")
+        st.divider()
+
+        col7, col8 = st.columns(2)
+
+        with col7:
+            st.metric("Current Price", f"₹ {round(current_price,2)} Lakhs")
+
+        with col8:
+            percentage_increase = ((round(predicted_price,2) - current_price) / current_price) * 100
+            st.metric("Growth", f"{round(percentage_increase,2)} %")
+
+        st.divider()
+        if predicted_Class == 0:
+            st.error("🤔 Poor Investment Opportunity")
+        elif predicted_Class == 1:
+            st.balloons()
+            st.info("👏 Ok to Investment Opportunity")
+        elif predicted_Class == 2:
+            st.info("✅ Good Investment Opportunity")
+        else:
+            st.success("🌟 Excellent Investment Opportunity")
+
+    #===============================================================================
+    
     if st.button("🚀 Predict Property Value", use_container_width=300):
 
         if Predict_the_price_using == 'LR':
@@ -326,6 +363,9 @@ if selected == "Predict":
             prediction = XG_model.predict(scaled_inputs)
             predicted_price = prediction[0]
 
+            pred_results = XG_model_Class.predict(scaled_inputs)
+            predicted_Class = pred_results[0]
+
         #==================Load LightGBM Model=====================
         elif Predict_the_price_using == 'LightGBM':
 
@@ -338,6 +378,9 @@ if selected == "Predict":
 
             prediction = LGBM_model.predict(scaled_inputs)
             predicted_price = prediction[0]
+
+            pred_results = XG_model_Class.predict(scaled_inputs)
+            predicted_Class = pred_results[0]
 
 
         
@@ -354,4 +397,5 @@ if selected == "Predict":
             percentage_increase = ((round(predicted_price,2) - current_price) / current_price) * 100
             st.metric("Growth", f"{round(percentage_increase,2)} %")
 
+        show_prediction()
         st.write("The option which you have selected are",user_data)
