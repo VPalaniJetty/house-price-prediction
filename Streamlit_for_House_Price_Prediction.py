@@ -266,7 +266,7 @@ if selected == "Predict":
     
     # Laoding Classification Models
     XG_model_Class =  joblib.load("xgboostClassification_model.pkl")
-    LightGBM_model_Class =  joblib.load("ogistic_regressionClassification_model.pkl")
+    LightGBM_model_Class =  joblib.load("lightgbmClassification_model.pkl")
     
     # Loading encoders, scaler and features
     encoders = joblib.load("encoders.pkl")
