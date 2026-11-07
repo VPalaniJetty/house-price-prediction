@@ -446,7 +446,7 @@ if selected == "Predict":
         
         Nearby_Hospitals = st.slider('Nearby_Hospitals',1,10)
         
-        Predict_the_price_using = st.selectbox("Select the Model to Predict Price",['LR','Decission Tree','Random Forest','XGBoost','LightGBM'])
+        Predict_the_price_using = st.selectbox("Select the Model to Predict Price",['XGBoost','LightGBM'])
 
 
     user_data = {'State':State,
