@@ -202,7 +202,7 @@ if selected == "Investment Analysis":
 
     # 4. Heatmap (Must Have)
     st.subheader(f"Correlation Heatmap for {selected_city} City {selected_city} BHK",text_alignment="center",divider="grey")
-    filtered_BHK_df = filtered_BHK_df.drop(['ID'],axis=1) # Droping the ID column
+    filtered_BHK_df = filtered_BHK_df.drop(['ID'],axis=1,errors='ignore') # Droping the ID column
     numeric_df = filtered_BHK_df.select_dtypes(include=np.number)
     corr = numeric_df.corr()
     fig, ax = plt.subplots(figsize=(10,6))
