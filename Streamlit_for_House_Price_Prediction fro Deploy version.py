@@ -90,7 +90,7 @@ if selected == "Home":
 
 if selected == "Investment Analysis":
     # Processed data by me
-    df = pd.to_parquet("housing_data.parquet")
+    df = pd.read_parquet("housing_data.parquet")
     
     df = df.drop(['Unnamed: 0','ID'],axis=1) # Dropping the index and ID
     # Original Data by Guvi
@@ -485,7 +485,7 @@ if selected == "Predict":
 
     # Laoding Classification Models
     XG_model_Class =  joblib.load("xgboostClassification_model.pkl")
-    LightGBM_model_Class =  joblib.load("logistic_regressionClassification_model.pkl")
+    LightGBM_model_Class =  joblib.load("lightgbmClassification_model.pkl")
 
     # Loading encoders, scaler and features
     encoders = joblib.load("encoders.pkl")
