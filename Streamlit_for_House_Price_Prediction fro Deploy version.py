@@ -243,6 +243,15 @@ if selected == "Investment Analysis":
     #         y="Price_per_SqFt")
     #     #plt.xticks(rotation=45)
     #     st.pyplot(fig)
+    
+    with bar2:
+        st.subheader(f"Size in sqft vs Price per SqFt for {selected_city} City {selected_city} BHK",text_alignment="center",divider="grey")
+        fig, ax = plt.subplots(figsize=(6,3))
+        data =  filtered_BHK_df.sort_values(by="Size_in_SqFt")
+        ax.plot(data['Size_in_SqFt'],data['Price_per_SqFt'], marker = "0", color = "teal",linewidth = 2)
+        ax.xlabel("Size_in_SqFt")
+        ax.ylabel("Price_per_SqFt")
+        st.pyplot(fig)
 
     # 6. BHK Distribution
     with bar3:
