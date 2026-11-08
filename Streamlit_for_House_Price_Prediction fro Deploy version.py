@@ -248,9 +248,9 @@ if selected == "Investment Analysis":
         st.subheader(f"Size in sqft vs Price per SqFt for {selected_city} City {selected_city} BHK",text_alignment="center",divider="grey")
         fig, ax = plt.subplots(figsize=(6,3))
         data =  filtered_BHK_df.sort_values(by="Size_in_SqFt")
-        ax.plot(data['Size_in_SqFt'],data['Price_per_SqFt'], marker = "o", color = "royalblue",linewidth = 2)
-        ax.set_xlabel("Size_in_SqFt")
-        ax.set_ylabel("Price_per_SqFt")
+        ax.plot(data['Price_per_SqFt'],data['Size_in_SqFt'], marker = "o", color = "royalblue",linewidth = 2)
+        ax.set_xlabel("Price_per_SqFt")
+        ax.set_ylabel("Size_in_SqFt")
         st.pyplot(fig)
 
     # 6. BHK Distribution
