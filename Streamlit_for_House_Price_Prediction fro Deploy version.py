@@ -249,8 +249,8 @@ if selected == "Investment Analysis":
         fig, ax = plt.subplots(figsize=(6,3))
         data =  filtered_BHK_df.sort_values(by="Size_in_SqFt")
         ax.plot(data['Size_in_SqFt'],data['Price_per_SqFt'], marker = "o", color = "royalblue",linewidth = 2)
-        ax.xlabel("Size_in_SqFt")
-        ax.ylabel("Price_per_SqFt")
+        ax.set_xlabel("Size_in_SqFt")
+        ax.set_ylabel("Price_per_SqFt")
         st.pyplot(fig)
 
     # 6. BHK Distribution
