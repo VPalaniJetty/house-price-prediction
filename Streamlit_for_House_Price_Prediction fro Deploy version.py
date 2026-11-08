@@ -234,15 +234,15 @@ if selected == "Investment Analysis":
     st.pyplot(fig)
 
     # 5. Property Type vs Price per SqFt
-    with bar2:
-        st.subheader(f"Property Type vs Price per SqFt for {selected_city} City {selected_city} BHK",text_alignment="center",divider="grey")
-        fig, ax = plt.subplots(figsize=(6,3))
-        sns.boxplot(
-            data=filtered_BHK_df,
-            x="Property_Type",
-            y="Price_per_SqFt")
-        #plt.xticks(rotation=45)
-        st.pyplot(fig)
+    # with bar2:
+    #     st.subheader(f"Property Type vs Price per SqFt for {selected_city} City {selected_city} BHK",text_alignment="center",divider="grey")
+    #     fig, ax = plt.subplots(figsize=(6,3))
+    #     sns.boxplot(
+    #         data=filtered_BHK_df,
+    #         x="Property_Type",
+    #         y="Price_per_SqFt")
+    #     #plt.xticks(rotation=45)
+    #     st.pyplot(fig)
 
     # 6. BHK Distribution
     with bar3:
