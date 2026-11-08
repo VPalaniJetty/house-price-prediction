@@ -203,7 +203,7 @@ if selected == "Investment Analysis":
     # 4.1 Heatmap with Final Cleaned Data
     st.subheader(f"Final cleaned Data Correlation Heatmap",text_alignment="center",divider="grey")
     df_Corr = pd.read_csv("Final Data to explore correlation.csv")
-    df_Corr = filtered_BHK_df.drop(['ID'],axis=1,errors='ignore') # Droping the ID column
+    df_Corr = df_Corr.drop(['ID'],axis=1,errors='ignore') # Droping the ID column
     numeric_df = df_Corr.select_dtypes(include=np.number)
     corr = numeric_df.corr()
     fig, ax = plt.subplots(figsize=(10,6))
