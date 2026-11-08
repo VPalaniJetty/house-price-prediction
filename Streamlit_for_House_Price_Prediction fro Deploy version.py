@@ -200,6 +200,23 @@ if selected == "Investment Analysis":
         ax=ax)
     st.pyplot(fig)
 
+    # 4.1 Heatmap with Final Cleaned Data
+    st.subheader(f"Final cleaned Data Correlation Heatmap",text_alignment="center",divider="grey")
+    df_Corr = pd.read_csv("Final Data to explore correlation.csv")
+    df_Corr = filtered_BHK_df.drop(['ID'],axis=1,errors='ignore') # Droping the ID column
+    numeric_df = df_Corr.select_dtypes(include=np.number)
+    corr = numeric_df.corr()
+    fig, ax = plt.subplots(figsize=(10,6))
+    sns.heatmap(
+        corr,
+        annot=True,
+        cmap="coolwarm",
+        annot_kws={"size": 5}, # Font size inside the heatmap
+        fmt=".2f")
+    ax.tick_params(axis='x', labelsize=6)
+    ax.tick_params(axis='y', labelsize=6)
+    st.pyplot(fig)
+    
     # 4. Heatmap (Must Have)
     st.subheader(f"Correlation Heatmap for {selected_city} City {selected_city} BHK",text_alignment="center",divider="grey")
     filtered_BHK_df = filtered_BHK_df.drop(['ID'],axis=1,errors='ignore') # Droping the ID column
